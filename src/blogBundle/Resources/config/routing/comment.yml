@@ -1,0 +1,30 @@
+comment:
+    path:     /
+    defaults: { _controller: "blogBundle:Comment:index" }
+
+comment_show:
+    path:     /{id}/show
+    defaults: { _controller: "blogBundle:Comment:show" }
+
+comment_new:
+    path:     /new
+    defaults: { _controller: "blogBundle:Comment:new" }
+
+comment_create:
+    path:     create
+    defaults: { _controller: "blogBundle:Comment:create" }
+    methods:  POST
+
+comment_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "blogBundle:Comment:edit" }
+
+comment_update:
+    path:     /{id}/update
+    defaults: { _controller: "blogBundle:Comment:update" }
+    methods:  [POST, PUT]
+
+comment_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "blogBundle:Comment:delete" }
+    methods:  [POST, DELETE]

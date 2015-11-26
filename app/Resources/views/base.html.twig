@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% block title %}{% endblock %} - N&L</title>
+
+  {% block stylesheets %}
+<link rel = "stylesheet" href = "{{ asset('bundles/blog/bootstrap/css/bootstrap.min.css') }}" type = "text/css" />
+<link rel = "stylesheet" href = "{{ asset('bundles/blog/bootstrap/css/bootstrap-responsive.min.css') }}" type = "text/css" />
+  {% endblock %}
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">N&L</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{{ path('news') }}">Accueil <span class="sr-only">(current)</span></a></li>
+        <li><a href="{{ path('news_new') }}">Ecrire un article</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ path('news_about')}}">A propos</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  {% block body %}
+  {% endblock %}
+
+
+  {% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+  {% endblock %}
+
+</body>
+
+<hr>
+
+<footer>
+     <div class="container">
+            <div class="row">
+                  <div class="col-md-8">
+                    <p>N&L blog &copy; 2015</p>
+          </div>
+      </div>
+</footer>
+
+
+</html>

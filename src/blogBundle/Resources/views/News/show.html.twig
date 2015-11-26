@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+{% block title %}{{ entity.title }}{% endblock %}
+{% block body -%}
+
+   <div class="container">
+        <h1>{{ entity.title }}</h1>
+   <hr>
+
+            <div class="row">
+            <div class="col-md-8">
+
+    <table class="record_properties">
+        <tbody>
+
+            <p><span class="glyphicon glyphicon-time"></span> Publié le : {% if entity.createdAt %}{{ entity.createdAt|date('d/m/y') }}{% endif %} à {% if entity.createdAt %}{{ entity.createdAt|date('H:i:s') }}{% endif %}</p>
+
+            <p>{{ entity.content }}</p>
+            <br>
+        
+            <il><a class="btn btn-primary" href="{{ path('news_edit', { 'id': entity.id }) }}"> Modifier l'article</a></li>
+            
+            
+            {{ form_start(delete_form) }}
+            <br>
+            {{ form_widget(delete_form.submit, { 'attr': {'class': 'btn btn-secondary', 'type': 'button'} }) }}
+            {{ form_end(delete_form) }}
+            </a>
+            
+        </tbody>
+    </table>
+
+            </div>
+            </div>
+            <hr>
+                    <li><a href="{{ path('news') }}"> Retourner à la liste des articles 
+        </a></li>
+
+    </div>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,53 @@
+{% extends '::base.html.twig' %}
+{% block title %}Accueil{% endblock %}
+{% block body -%}
+<div class="container">
+<h1 class="page-header">Le blog de N&L
+<small>Accueil</small>
+</h1>
+
+    <div class="row">
+        <div class="col-md-8">
+            <table class="records_list">
+  
+            <tbody>
+            {% for entity in entities %}
+            
+            <h2><a href="{{ path('news_show', { 'id': entity.id }) }}">{{ entity.title }}</a></h2>
+
+            <p><span class="glyphicon glyphicon-time"></span> Publié le : {% if entity.createdAt %}{{ entity.createdAt|date('d/m/y') }}{% endif %} à {% if entity.createdAt %}{{ entity.createdAt|date('H:i:s') }}{% endif %}</p>
+
+            <p align="justify">{{ entity.content }}</p>
+        
+
+            <ul class="nav nav-pills" role="tablist">
+            <li role="presentation"><a class="btn btn-primary" href="{{ path('news_show', { 'id': entity.id }) }}"> Voir l'article <span class="glyphicon glyphicon-chevron-right"></span></a></li>
+            <li role="presentation"><a class="btn btn-default" href="{{ path('news_edit', { 'id': entity.id }) }}"> Modifier <span class="glyphicon glyphicon-chevron-right"></span></a></li>
+            </ul>
+                        
+            {% endfor %}
+
+            </table>
+            </tbody>
+
+               
+      
+
+       
+            <hr>
+            <li><a href="{{ path('news_new') }}">
+            Ecrire un nouvel article
+            </a></li>
+
+
+        </div>
+        <div class="col-md-4">
+            <div class="well">
+            <h4>Side Widget Well</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+            </div>
+        </div>  
+    </div>
+</div
+
+    {% endblock %}

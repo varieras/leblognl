@@ -1,0 +1,7 @@
+blog_comment:
+    resource: "@blogBundle/Resources/config/routing/comment.yml"
+    prefix:   /comment
+
+blog_news:
+    resource: "@blogBundle/Resources/config/routing/news.yml"
+    prefix:   /

@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+{% block title %}Création d'un nouvel article{% endblock %}
+
+{% block body -%}
+
+
+   <div class="container">
+        <h1>Création d'un article</h1>
+   <hr>
+
+            <div class="row">
+            <div class="col-md-8">
+
+{{ form_start(form) }}
+        {{ form_label(form.title,'Titre :') }}
+        {{ form_errors(form.title) }}
+        {{ form_widget(form.title) }}
+            <br>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-8">
+        {{ form_label(form.content,'Texte :') }}
+        {{ form_errors(form.content) }}
+        {{ form_widget(form.content) }}
+            <br>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-8">
+        {{ form_label(form.createdAt, 'Date de publication :') }}
+        {{ form_errors(form.createdAt) }}
+        {{ form_widget(form.createdAt) }}
+            <br>
+            </div>
+            </div>
+      {{ form_start(form) }}
+      {{ form_widget(form.submit, { 'attr': {'class': 'btn btn-primary', 'type': 'button'} }) }}
+      {{ form_end(form) }}
+
+    <hr>
+    	<li><a href="{{ path('news') }}"> Retourner à la liste des articles 
+    	</a></li>
+
+			</div>
+			</div>
+	</div>
+{% endblock %}
