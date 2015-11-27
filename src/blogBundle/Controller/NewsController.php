@@ -7,10 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use blogBundle\Entity\News;
-use blogBundle\Entity\Comment;
 use blogBundle\Form\NewsType;
-use blogBundle\Form\CommentType;
-
 
 /**
  * @ORM\Entity
@@ -113,20 +110,16 @@ class NewsController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('blogBundle:News')->find($id);
-        $entities = $em->getRepository('blogBundle:Comment')->findByNews($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find News entity.');
         }
-        $entityComment = new Comment();
-        $form   = $this->createForm(new CommentType(), $entityComment);
+
 
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('blogBundle:News:show.html.twig', array(
             'entity'      => $entity,
-            'entities'    => $entities,
-            'form'        => $form->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
