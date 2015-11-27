@@ -7,6 +7,11 @@
   <title>{% block title %}{% endblock %} - N&L</title>
 
   {% block stylesheets %}
+<style type="text/css">
+  @import url(bundles/blog/bootstrap/css/bootstrap.min.css);
+  @import url(bundles/blog/bootstrap/css/bootstrap-responsive.min.css);
+</style>
+
 <link rel = "stylesheet" href = "{{ asset('bundles/blog/bootstrap/css/bootstrap.min.css') }}" type = "text/css" />
 <link rel = "stylesheet" href = "{{ asset('bundles/blog/bootstrap/css/bootstrap-responsive.min.css') }}" type = "text/css" />
   {% endblock %}
